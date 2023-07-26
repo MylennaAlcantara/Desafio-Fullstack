@@ -50,7 +50,6 @@ Profissional
 - [ ]Use qualquer DB. PostgreSQL DB é a sugestão, sinta-se livre para usar qualquer outro. 
 
 **Frontend 💻**
-Se optar por realizar somente desafio frontend, utilize o modelo de dados proposto com algum mecanismo para gerar o Mock dos dados.
 
 - [ ]Criar uma tela home com menu de acesso as funcionalidades
 - [ ]Uma tela de listagem para cada uma das entidades
