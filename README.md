@@ -35,13 +35,13 @@ Profissional
 
 #Requisitos funcionais ✅
 #Backend 🌎
-*A API deve seguir as boas práticas e padrões de implementação REST
-*Os dados deve ser salvos em um banco de dados
-*Escrever os testes para o código e as APIs geradas
-*Prover documentação para API. (Sugestão OpenAPI/Swagger)
-*Use Node.js e qualquer outro framework
-*Use TypeScript
-*Use qualquer DB. PostgreSQL DB é a sugestão, sinta-se livre para usar qualquer outro.
+*A API deve seguir as boas práticas e padrões de implementação REST \n
+*Os dados deve ser salvos em um banco de dados \n
+*Escrever os testes para o código e as APIs geradas \n
+*Prover documentação para API. (Sugestão OpenAPI/Swagger) \n
+*Use Node.js e qualquer outro framework \n
+*Use TypeScript \n
+*Use qualquer DB. PostgreSQL DB é a sugestão, sinta-se livre para usar qualquer outro. \n
 
 #Frontend 💻
 ** Se optar por realizar somente desafio frontend, utilize o modelo de dados proposto com algum mecanismo para gerar o Mock dos dados.
