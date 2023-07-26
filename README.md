@@ -7,12 +7,12 @@ Esta é a proposta de um desafio que FullStack sinta-se a vontade para tentá-lo
 
 🚀 Tudo certo!? Então vamos lá!
 
-** Contexto 🎲 **
+** Contexto 🎲**
 Em todo aplicativo comercial temos um controle dos profissinais envolvidos no processo sejam usuários, responsáveis, gerentes, administradores, operadores, etc. Por isso um ponto importante de qualquer aplicação é permitir designarmos estas funções ou seja categorizar em tipos estes profissionais. Ex.: ProfissionalAna = Médica, José = Professor...
 
 Vamos criar então uma aplicação que nos permita consultar, criar e editar essas informações e manter essa relação entre o profissional e seu tipo.
 
-** Modelo de dados 📝 **
+** Modelo de dados 📝**
 Tipo de profissional
 ```{
   "id": xxx,                  // ID 
