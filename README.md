@@ -34,8 +34,8 @@ Profissional
     "createdAt": ""              // Data e hora da de cadastro *Obrigatório
 }
 
-# Requisitos funcionais ✅
-# Backend 🌎
+** Requisitos funcionais ✅ **
+** Backend 🌎 **
 - [ ]A API deve seguir as boas práticas e padrões de implementação REST 
 - [ ]Os dados deve ser salvos em um banco de dados
 - [ ]Escrever os testes para o código e as APIs geradas 
@@ -44,7 +44,7 @@ Profissional
 - [ ]Use TypeScript \n
 - [ ]Use qualquer DB. PostgreSQL DB é a sugestão, sinta-se livre para usar qualquer outro. 
 
-# Frontend 💻
+** Frontend 💻 **
 ** Se optar por realizar somente desafio frontend, utilize o modelo de dados proposto com algum mecanismo para gerar o Mock dos dados.
 
 - [ ]Criar uma tela home com menu de acesso as funcionalidades
@@ -54,16 +54,16 @@ Profissional
 - [ ]Fique a vontade para utilizar bibliotecas de componentes de mercado ou criar os seus
 - [ ]Utilize TypeScript
 
-# Mobile 📱
+** Mobile 📱 **
 - [ ]Também desenvolvemos soluções mobile e procuramos profissionais com essas habilidades e conhecimentos.
 - [ ]Caso queira ou seja solicitado a você desenvolva a aplicação mobile com os mesmos requisitos do Frontend, usando tecnologia ReactNative.
 
-# Diferencial ⚔️
+** Diferencial ⚔️ **
 - [ ]Documentação clara do código. Código comentado sempre é bom!
 - [ ]Utilização do framework Nest.js.
 - [ ]Boas mensagens de commit ajudam!
 
-# Requisitos não funcionais 🆒
+** Requisitos não funcionais 🆒 **
 - [ ]Um arquivo README.md com o resumo de escolhas por frameworks, bibliotecas, banco de dados e como executar seu projeto.
 Opcional - Requisitos avançados ❕
 Estes requisitos são opcionais no desafio, sinta-se a vontade para deixá-los de lado, a menos que seja solicitado que os cumpra!
