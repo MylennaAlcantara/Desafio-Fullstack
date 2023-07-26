@@ -16,7 +16,8 @@ Vamos criar então uma aplicação que nos permita consultar, criar e editar ess
 **Modelo de dados 📝**
 
 Tipo de profissional
-```{
+```
+{
   "id": xxx,                  // ID 
   "descricao": "test",        // descricao do tipo *Obrigatório
   "situacao": true,           // situacao do cadastro *Obrigatório
