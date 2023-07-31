@@ -28,9 +28,21 @@ export const Header = () => {
             <H.NavBar>
                 <h1>Gestor</h1>
                 <div className="menu">
-                    <button onClick={()=> navigate("")}>Home</button>
-                    <button onClick={()=> navigate("/profissionais")}>Profissionais</button>
-                    <button onClick={()=> navigate("/tipoProfissionais")}>Tipos de Profissionais</button>
+                    <button onClick={()=> navigate("/")}>Home</button>
+                    <div className="button">
+                        <button onClick={()=> navigate("/profissionais")}>Profissionais</button>
+                        <div className="menu-item">
+                            <button onClick={()=> navigate("/profissionais")}>Lista de Profissionais</button>
+                            <button>Cadastrar Profissional</button>
+                        </div>
+                    </div>
+                    <div className="button">
+                        <button onClick={()=> navigate("/tipoProfissionais")}>Tipos de Profissões</button>
+                        <div className="menu-item">
+                            <button onClick={()=> navigate("/tiposProfissionais")}>Lista de Tipos de Profissões</button>
+                            <button>Cadastrar Tipo de Profissão</button>
+                        </div>
+                    </div>
                 </div>
             </H.NavBar>
         </H.Container>

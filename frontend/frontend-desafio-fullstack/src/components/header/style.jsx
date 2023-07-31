@@ -7,6 +7,10 @@ export const Container = style.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 0px;
+    z-index:2;
+    background-color: white;
     img{
         height: 20px;
         width: 20px;
@@ -53,6 +57,7 @@ export const NavBar = style.div`
         color: #007bff;
     }
     .menu{
+        display: flex;
         height: 100%;
         button{
             font-weight: bold;
@@ -65,6 +70,22 @@ export const NavBar = style.div`
         button:hover{
             cursor: pointer;
             color: #007bff;
+        }
+        .button{
+            display: inline-block;
+        }
+        .menu-item{
+            display: none;
+            position: absolute;
+            background-color: #f9f8fc;
+            width: 160px;
+            z-index: 3;
+        }
+        .button:hover .menu-item{
+            display: block;
+            button{
+                background-color: #f9f8fc;
+            }
         }
     }
 `
