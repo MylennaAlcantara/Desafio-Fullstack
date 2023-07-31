@@ -22,8 +22,13 @@ export class ProfissionalService {
             });
     }
 
-    async create(@Body() body: ProfissionalSchema){
+    async create(@Body() body: ProfissionalSchema) {
         const dados = this.profissionalRepository.create(body);
         return await this.profissionalRepository.save(dados);
     }
+
+    async update(id: number, dados: Partial<ProfissionalModel>) {
+        return await this.profissionalRepository.update(id, dados);
+    }
+
 }
