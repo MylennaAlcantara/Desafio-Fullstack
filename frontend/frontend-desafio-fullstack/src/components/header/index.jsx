@@ -35,14 +35,14 @@ export const Header = ({ setProfissional }) => {
                         <button>Profissionais</button>
                         <div className="menu-item">
                             <button onClick={()=> {navigate("/profissionais"); setProfissional(true)}}>Lista de Profissionais</button>
-                            <button>Cadastrar Profissional</button>
+                            <button onClick={()=> navigate("/profissionais/cadastrar")}>Cadastrar Profissional</button>
                         </div>
                     </div>
                     <div className="button">
                         <button>Tipos de Profissões</button>
                         <div className="menu-item">
                             <button onClick={()=> {navigate("/tiposProfissionais"); setProfissional(false)}}>Lista de Tipos de Profissões</button>
-                            <button>Cadastrar Tipo de Profissão</button>
+                            <button onClick={()=> navigate("/tiposProfissionais/cadastrar")}>Cadastrar Tipo de Profissão</button>
                         </div>
                     </div>
                 </div>

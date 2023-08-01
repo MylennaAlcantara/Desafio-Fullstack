@@ -3,6 +3,8 @@ import './App.css';
 import { Home } from './pages/home';
 import { TipoProfissional } from './pages/tipoProfissionais';
 import { Profissional } from './pages/profissionais';
+import { CadastroProfissional } from './pages/cadastroProfissionais';
+import { CadastroTipoProfissional } from './pages/cadastroTipoProfissional';
 
 function App() {
   return (
@@ -11,8 +13,8 @@ function App() {
         <Route path="" Component={Home}/>
         <Route path="/profissionais" Component={Profissional}/>
         <Route path="/tiposProfissionais" Component={TipoProfissional}/>
-        <Route path="/tiposProfissionais/cadastrar"/>
-        <Route path="/tiposProfissionais/cadastrar"/>
+        <Route path="/profissionais/cadastrar" Component={CadastroProfissional}/>
+        <Route path="/tiposProfissionais/cadastrar" Component={CadastroTipoProfissional}/>
       </Routes>
     </div>
   );
