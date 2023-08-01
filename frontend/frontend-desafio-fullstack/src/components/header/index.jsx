@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom"
 import * as H from "./style";
 
-export const Header = () => {
+export const Header = ({ setProfissional }) => {
     const navigate = useNavigate();
     return(
         <H.Container>
@@ -27,22 +27,25 @@ export const Header = () => {
             </H.Contato>
             <H.NavBar>
                 <h1>Gestor</h1>
+                <div id="menu">
+                <div className="hamburguer">X</div>
                 <div className="menu">
                     <button onClick={()=> navigate("/")}>Home</button>
                     <div className="button">
-                        <button onClick={()=> navigate("/profissionais")}>Profissionais</button>
+                        <button>Profissionais</button>
                         <div className="menu-item">
-                            <button onClick={()=> navigate("/profissionais")}>Lista de Profissionais</button>
+                            <button onClick={()=> {navigate("/profissionais"); setProfissional(true)}}>Lista de Profissionais</button>
                             <button>Cadastrar Profissional</button>
                         </div>
                     </div>
                     <div className="button">
-                        <button onClick={()=> navigate("/tipoProfissionais")}>Tipos de Profissões</button>
+                        <button>Tipos de Profissões</button>
                         <div className="menu-item">
-                            <button onClick={()=> navigate("/tiposProfissionais")}>Lista de Tipos de Profissões</button>
+                            <button onClick={()=> {navigate("/tiposProfissionais"); setProfissional(false)}}>Lista de Tipos de Profissões</button>
                             <button>Cadastrar Tipo de Profissão</button>
                         </div>
                     </div>
+                </div>
                 </div>
             </H.NavBar>
         </H.Container>

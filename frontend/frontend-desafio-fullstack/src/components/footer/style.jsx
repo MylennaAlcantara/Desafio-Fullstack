@@ -20,4 +20,11 @@ export const Container = styled.div`
     img:hover{
         cursor: pointer
     }
+    @media(max-width: 460px){
+        height: 25%;
+        div{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 `

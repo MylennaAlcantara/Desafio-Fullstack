@@ -46,6 +46,11 @@ export const Contato = style.div`
             cursor: pointer;
         }
     }
+    @media(max-width: 460px){
+        .contatos{
+            display: none;
+        }
+    }
 `
 export const NavBar = style.div`
     height: 100%;
@@ -85,6 +90,31 @@ export const NavBar = style.div`
             display: block;
             button{
                 background-color: #f9f8fc;
+            }
+        }
+    }
+    @media(max-width: 460px){
+        display: flex;
+        justify-content: space-around;
+        #menu{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            .menu{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                position: relative;
+                .button{
+                    width: 100px;
+                }
+                button{
+                    width: 100%;
+                }
             }
         }
     }
