@@ -61,6 +61,9 @@ export const NavBar = style.div`
     h1{
         color: #007bff;
     }
+    .hamburguer{
+        display: none;
+    }
     .menu{
         display: flex;
         height: 100%;
@@ -96,6 +99,12 @@ export const NavBar = style.div`
     @media(max-width: 460px){
         display: flex;
         justify-content: space-around;
+        .hamburguer{
+            display: flex;
+        }
+        #menu-desativado{
+            display: none;
+        }
         #menu{
             display: flex;
             flex-direction: column;

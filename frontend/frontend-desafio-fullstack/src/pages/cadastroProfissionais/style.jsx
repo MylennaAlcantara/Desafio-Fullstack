@@ -3,19 +3,36 @@ import { styled } from "styled-components";
 export const Container = styled.div`
     width: 100%;
     height: 100%;
-    background-image: url("/images/trabalhadores.jpg");
-    background-size: cover;
 `
 export const Formulario = styled.div`
-    width: 80%;
+    width: 100%;
     height: 60%;
     margin: 5px auto;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+    background-color: #007bff;
+    position: relative;
+    &&:before{
+        content: ' ';
+        position: absolute;
+        background-image: url("/images/trabalhadores.jpg");
+        background-size: cover;
+        opacity: 0.6;
+        width: 100%;
+        height: 100%;
+        z-index:1;
+    }
+
+    h2{
+        z-index: 1;
+        margin: 10px;
+    }
 
     form{
+        z-index: 1;
         display:flex;
         justify-content: center;
         align-items: start;
@@ -38,7 +55,7 @@ export const Formulario = styled.div`
         }
         label{
             font-weight: bold;
-            color: #555555;
+            color: Black;
         }
         select:focus,
         input:focus{
@@ -54,6 +71,8 @@ export const Formulario = styled.div`
         border-radius: 10px;
         border: none;
         background-color: #007bff;
+        z-index: 1;
+        margin: 5px;
     }
     button:hover{
         background-color: #f9f8fc;
