@@ -5,8 +5,8 @@ export const ormConfig: DataSourceOptions = {
     "host": "localhost", //"blpvdpisjtnfbb6c13jk-mysql.services.clever-cloud.com", // "localhost",
     "type": "mysql",
     "port": 3306,
-    "username": "root", //"uzozut4jzpeqdwkk",//"g3_informatica",
-    "password": "root",//"4t5mhh2G05ssbNkCm08f", //"#g31nf#"
+    "username": "g3_informatica", //"uzozut4jzpeqdwkk",//"g3_informatica",
+    "password": "#g31nf#",//"4t5mhh2G05ssbNkCm08f", //"#g31nf#"
     "synchronize": true,
-    "entities": ["dist/**/**.entity{.ts,.js}"]
+    "entities": ["dist/**/*.model.js"]
 }

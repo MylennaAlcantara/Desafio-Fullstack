@@ -53,7 +53,7 @@ export const CadastroProfissional = () => {
                     </div>
                 </form>
                 <div style={{ display: "flex", flexDirection: "row", marginTop: "5px", height: "auto" }}>
-                    <button>Salvar</button>
+                    <button onClick={cadastrar}>Salvar</button>
                     <button>Desativar</button>
                     <button>Cancelar</button>
                 </div>
