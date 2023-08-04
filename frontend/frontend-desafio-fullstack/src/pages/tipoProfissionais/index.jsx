@@ -6,11 +6,19 @@ import { Tabela } from "../../components/tabela";
 
 export const TipoProfissional = () => {
     const [profissional, setProfissional] = useState(false);
-    
+    const  [tiposProfissionais, setTiposProfissionais] = useState([])
+    useEffect(()=>{
+        async function fetchdata(){
+           const res = await fetch("http://localhost:8080/tiposProfissionais");
+           const data = await res.json();
+           setTiposProfissionais(data)
+        }
+        fetchdata()
+    })
     return(
         <TP.Container>
             <Header setProfissional={setProfissional}/>
-            <Tabela profissional={profissional}/>
+            <Tabela profissional={profissional} tiposProfissionais={tiposProfissionais}/>
             <Footer/>
         </TP.Container>
     )

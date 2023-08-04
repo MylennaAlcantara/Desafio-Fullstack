@@ -1,7 +1,7 @@
 import React from "react";
 import * as T from "./style";
 
-export const Tabela = ({profissional}) => {
+export const Tabela = ({profissional, profissionais, tiposProfissionais}) => {
     return(
         <T.Container>
             <T.Tabela>
@@ -23,13 +23,24 @@ export const Tabela = ({profissional}) => {
                         )}
                     </thead>
                     <tbody>
-                        {/*body && body.map((item, index)=>{
+                        {profissional ? profissionais.map((item, index)=>{
                             return(
                                 <tr key={index}>
-                                    <td>{item}</td>
+                                    <td>{item.id}</td>
+                                    <td>{item.nome}</td>
+                                    <td>{item.tipoProfissional}</td>
+                                    <td>{item.createAt}</td>
                                 </tr>
                             )
-                        })*/}
+                        }) : tiposProfissionais.map((tipo)=>{
+                            return(
+                                <tr key={tipo.id}>
+                                    <td>{tipo.id}</td>
+                                    <td>{tipo.descricao}</td>
+                                    <td>{tipo.createAt}</td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </T.Tabela>

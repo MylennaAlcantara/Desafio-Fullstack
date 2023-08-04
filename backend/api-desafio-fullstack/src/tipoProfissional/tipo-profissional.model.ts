@@ -9,7 +9,7 @@ export class TipoProfissionalModel{
     @Column()
     situacao: boolean;           // situacao do cadastro *Obrigatório
     @Column()
-    updatedAt: Timestamp;            // data e hora ultima atualizacao *Obrigatório
+    updatedAt: Date;            // data e hora ultima atualizacao *Obrigatório
     @Column()
-    createdAt: Timestamp;             // data e hora de cadastro *Obrigatório
+    createdAt: Date;             // data e hora de cadastro *Obrigatório
 }
