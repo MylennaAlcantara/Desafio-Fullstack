@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import * as H from "./styles";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 
 export const Home = () => {
+    const [profissional, setProfissional] = useState(null);
     return (
         <H.Container>
-            <Header/>
+            <Header setProfissional={setProfissional}/>
             <div id="imagem-inicio"/>
             <H.Explain>
                 <div className="profissionais">

@@ -9,12 +9,12 @@ export const TipoProfissional = () => {
     const  [tiposProfissionais, setTiposProfissionais] = useState([])
     useEffect(()=>{
         async function fetchdata(){
-           const res = await fetch("http://localhost:8080/tiposProfissionais");
+           const res = await fetch("http://localhost:8080/tipoProfissional");
            const data = await res.json();
            setTiposProfissionais(data)
         }
         fetchdata()
-    })
+    },[])
     return(
         <TP.Container>
             <Header setProfissional={setProfissional}/>

@@ -14,7 +14,7 @@ export const CadastroTipoProfissional = () => {
         descricao: "",
         situacao: true,
         createdAt: today,
-        updatedAt: ""
+        updatedAt: null
     });
     async function cadastrar(){
         await fetch("http://localhost:8080/tipoProfissional/cadastrar",{

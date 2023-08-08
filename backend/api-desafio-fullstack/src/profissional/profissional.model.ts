@@ -1,17 +1,22 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('profissional')
 export class ProfissionalModel {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
+    @PrimaryColumn()
     id: number;                
     
     @Column({length: 120})
     nome: String;             // *Obrigatório
     
-    @Column()
-    telefone: Number;     
+    @Column({
+        nullable: true,
+    })
+    telefone: String;     
     
-    @Column()
+    @Column({
+        nullable: true,
+    })
     email: String;          
     
     @Column()
@@ -20,9 +25,15 @@ export class ProfissionalModel {
     @Column()
     situacao: Boolean;            // *Obrigatório
     
-    @Column()
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
     updatedAt: Date;             // *Obrigatório
     
-    @Column()
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
     createdAt: Date;             // *Obrigatório
 }

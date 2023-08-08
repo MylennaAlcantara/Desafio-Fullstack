@@ -4,7 +4,7 @@ export class ProfissionalSchema{
     @IsString()
     nome: String;             // *Obrigatório
     
-    telefone: Number;     
+    telefone: String;     
     
     @IsString()
     @IsEmail()
