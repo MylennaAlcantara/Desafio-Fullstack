@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/header';
 
 
 export const Home = () => {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header/>
-      </View>
+      </SafeAreaView>
     );
   }
   
