@@ -1,14 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, Image, Modal, TouchableOpacity, SafeAreaViewBase, SafeAreaView, FlatList } from 'react-native';
+import { useRef, useState } from 'react';
+import { ScrollView, StyleSheet, Text, View, Image, Modal, TouchableOpacity, SafeAreaViewBase, SafeAreaView, FlatList, Animated, Easing } from 'react-native';
 
 export const Header = ()=> {
   const [visible, setVisible] = useState(false);
-  const options = [
-      "Lista de Profissional",
-      "Profissional",
-      "Tipo de Profissional"
-  ]
+  const scale = useRef(new Animated.Value(0)).current;
+  const [opProfissional, setOpProfissional] = useState(false);
+  const [opTipo, setOpTipo] = useState(false);
+
+  function resizeBox(to: number){
+    if(to != 3){
+      to === 1 && setVisible(true);
+      Animated.timing(scale, {
+        toValue: to,
+        useNativeDriver: true,
+        duration: 200,
+        easing: Easing.linear,
+      }).start(()=> to === 0 && setVisible(false));
+    }
+  }
+
   return (
     <View style={styles.container}>
         <View style={styles.contatos}>
@@ -18,34 +29,42 @@ export const Header = ()=> {
         </View>
         <View style={styles.menu}>
             <Text style={styles.text}>Gestor</Text>
-            <TouchableOpacity onPress={()=> setVisible(true)}>
+            <TouchableOpacity onPress={()=>resizeBox(1)}>
               <Image style={styles.image} source={require("../../../public/images/icones/linkedin_icon.png")}/>
             </TouchableOpacity>
             <Modal transparent visible={visible} >
-              <SafeAreaView style={{flex: 1}} onTouchStart={()=> setVisible(false)}>
-                <View style={styles.popup}>
+              <SafeAreaView style={{flex: 1}} onTouchEnd={()=>resizeBox(0)}>
+                <Animated.View style={styles.popup} onTouchStart={()=>resizeBox(3)}>
                       <TouchableOpacity style={styles.opcao}>
                         <Text>Home</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao}>
+                      <TouchableOpacity style={styles.opcao} onPress={()=>{setOpProfissional(!opProfissional); }}>
                         <Text>Profissionais</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao}>
-                        <Text>Lista de Profissionais</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao}>
-                        <Text>Cadastro de Profissionais</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao}>
+                      {opProfissional ? (
+                        <>
+                          <TouchableOpacity style={styles.opcao}>
+                            <Text>Lista de Profissionais</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.opcao}>
+                            <Text>Cadastro de Profissionais</Text>
+                          </TouchableOpacity>
+                        </>
+                      ):null}
+                      <TouchableOpacity style={styles.opcao} onPress={()=> setOpTipo(!opTipo)}>
                         <Text>Tipo de Profissões</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao}>
-                        <Text>Lista de Profissões</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao}>
-                        <Text>Cadastro de Profissões</Text>
-                      </TouchableOpacity>
-                </View>
+                      {opTipo ? (
+                        <>
+                          <TouchableOpacity style={styles.opcao}>
+                            <Text>Lista de Profissões</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.opcao}>
+                            <Text>Cadastro de Profissões</Text>
+                          </TouchableOpacity>
+                        </>
+                      ):null}
+                </Animated.View>
               </SafeAreaView>
             </Modal>
         </View>
@@ -84,9 +103,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: "space-around"
   }, 
-  modal: {
-    flex: 1,
-  },
   popup: {
     backgroundColor: '#f9f8fc',
     width: 150,
@@ -96,12 +112,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     borderRadius: 10,
     alignItems: "center",
-
+    zIndex: 3
   },
   opcao: {
     height: 35,
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    zIndex: 3
   }
 });
