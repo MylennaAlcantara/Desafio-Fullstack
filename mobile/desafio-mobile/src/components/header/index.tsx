@@ -1,23 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
 import { useRef, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, Image, Modal, TouchableOpacity, SafeAreaViewBase, SafeAreaView, FlatList, Animated, Easing } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image, Modal, TouchableOpacity, SafeAreaViewBase, SafeAreaView, FlatList, Animated, Easing, TouchableWithoutFeedback } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../App';
 
-export const Header = ()=> {
+export type ProfileScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Home',
+  'Profissional'
+>;
+
+export type Props = {
+  navigation: ProfileScreenNavigationProp;
+};
+
+export const Header = ({navigation}: Props)=> {
   const [visible, setVisible] = useState(false);
   const scale = useRef(new Animated.Value(0)).current;
   const [opProfissional, setOpProfissional] = useState(false);
   const [opTipo, setOpTipo] = useState(false);
 
   function resizeBox(to: number){
-    if(to != 3){
-      to === 1 && setVisible(true);
-      Animated.timing(scale, {
-        toValue: to,
-        useNativeDriver: true,
-        duration: 200,
-        easing: Easing.linear,
-      }).start(()=> to === 0 && setVisible(false));
-    }
+    to === 1 && setVisible(true);
+    Animated.timing(scale, {
+      toValue: to,
+      useNativeDriver: true,
+      duration: 200,
+      easing: Easing.linear,
+    }).start(()=> to === 0 && setVisible(false));
   }
 
   return (
@@ -33,20 +43,21 @@ export const Header = ()=> {
               <Image style={styles.image} source={require("../../../public/images/icones/linkedin_icon.png")}/>
             </TouchableOpacity>
             <Modal transparent visible={visible} >
-              <SafeAreaView style={{flex: 1}} onTouchEnd={()=>resizeBox(0)}>
-                <Animated.View style={styles.popup} onTouchStart={()=>resizeBox(3)}>
+              <SafeAreaView  style={{flex: 1}} onTouchEnd={()=>resizeBox(0)}>
+                <Animated.View style={styles.popup} onTouchStart={()=>resizeBox(1)} onTouchEnd={(e) => {e.stopPropagation();}}>
                       <TouchableOpacity style={styles.opcao}>
                         <Text>Home</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={styles.opcao} onPress={()=>{setOpProfissional(!opProfissional); }}>
+
+                      <TouchableOpacity style={styles.opcao} onPress={()=>setOpProfissional(!opProfissional)}>
                         <Text>Profissionais</Text>
                       </TouchableOpacity>
                       {opProfissional ? (
                         <>
-                          <TouchableOpacity style={styles.opcao}>
+                          <TouchableOpacity style={styles.subOpcao} onPress={() => navigation.navigate('Profissional', {name: 'Profissional'})}>
                             <Text>Lista de Profissionais</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity style={styles.opcao}>
+                          <TouchableOpacity style={styles.subOpcao}>
                             <Text>Cadastro de Profissionais</Text>
                           </TouchableOpacity>
                         </>
@@ -56,10 +67,10 @@ export const Header = ()=> {
                       </TouchableOpacity>
                       {opTipo ? (
                         <>
-                          <TouchableOpacity style={styles.opcao}>
+                          <TouchableOpacity style={styles.subOpcao}>
                             <Text>Lista de Profissões</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity style={styles.opcao}>
+                          <TouchableOpacity style={styles.subOpcao}>
                             <Text>Cadastro de Profissões</Text>
                           </TouchableOpacity>
                         </>
@@ -75,18 +86,16 @@ export const Header = ()=> {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "50%",
-    position: "absolute",
-    top: 30,
+    height: 100,
   },
   contatos: {
     width: "100%",
-    height: "10%",
+    height: "40%",
     backgroundColor: '#f9f8fc',
     display: 'flex',
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   text: {
     fontSize: 30,
@@ -101,24 +110,41 @@ const styles = StyleSheet.create({
   menu: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    height: "60%",
+    alignItems: "center"
+
   }, 
   popup: {
     backgroundColor: '#f9f8fc',
     width: 150,
     position: "absolute",
     right: 20,
-    top: 80,
+    top: 150,
     display: 'flex',
     borderRadius: 10,
     alignItems: "center",
     zIndex: 3
   },
   opcao: {
+    width: "90%",
     height: 35,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    zIndex: 3
-  }
+    zIndex: 3,
+    borderBottomColor: "white",
+    borderBottomWidth: 1
+  },
+  subOpcao: {
+    width: "90%",
+    height: 35,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 3,
+    borderBottomColor: "#f9f8fc",
+    borderBottomWidth: 1,
+    backgroundColor: "white"
+  },
 });
