@@ -20,8 +20,8 @@ export const Profissional = ({navigation}: Props) =>{
 
     useEffect(()=>{
         async function fetchData() {
-            const response = await fetch("http://localhost:8080/profissional");
-            const data: dadoTipo = await response.json();
+            const response = await fetch("http://10.0.1.107:8080/profissional");
+            const data = await response.json();
             setDados(data);
         }    
         fetchData();

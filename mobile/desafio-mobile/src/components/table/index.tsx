@@ -1,32 +1,33 @@
-import { View, StyleSheet,Text } from "react-native"
+import { View, StyleSheet,Text, ScrollView } from "react-native"
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
 import { dadoTipo } from "../../screens/listaProfissional";
 
-const CONTENT = {
-    tableHead: ['Column 1', 'Column 2', 'Column 3'],
-    tableData: [
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-      ['1', '2', '3'],
-      ['a', 'b', 'c'],
-    ],
-};
 
 export const Tabela = ({ dados }: { dados: dadoTipo }) => {
+    const CONTENT = {
+        tableHead: ['ID', 'Nome', 'Profissão', 'Telefone', 'Email'],
+        /*tableData: [
+          ['1', '2', '3'],
+          ['a', 'b', 'c'],
+          ['1', '2', '3'],
+          ['a', 'b', 'c'],
+        ],*/
+        tableData: [dados.map((cell)=> [cell.id, cell.nome, cell.tipoDeProfissional, cell.telefone, cell.email])]
+    };
     return(
         <View style={styles.container}>
             {dados.map((i)=> <Text>{i.nome}</Text>)}
-            <Table style={{ width: "90%", margin: "auto" }}>
+            <Table style={{ width: "100%", margin: "auto" }}>
                 <Row
                 data={CONTENT.tableHead}
-                flexArr={[1, 1, 1]}
+                flexArr={[1, 3, 1, 2, 2]}
                 style={styles.head}
                 textStyle={styles.text}
                 />
                 <TableWrapper style={styles.wrapper}>
                     <Rows
                         data={CONTENT.tableData}
-                        flexArr={[1, 2, 1]}
+                        flexArr={[1, 3, 1, 2, 2]}
                         style={styles.row}
                         textStyle={styles.textRow}
                     />
