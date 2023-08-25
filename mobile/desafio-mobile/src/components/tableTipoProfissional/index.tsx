@@ -1,27 +1,21 @@
 import { View, StyleSheet,Text, ScrollView } from "react-native"
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
-import { dadoTipo } from "../../screens/listaProfissional";
+import { dadoTipoProfissional } from "../../screens/listaTipoProfissional";
 import {FlatList} from "react-native";
 
 
-export const TabelaProfissional = ({ dados }: {dados: dadoTipo}) => {
+export const TabelaTipoProfissional = ({ dados }: {dados: dadoTipoProfissional}) => {
     return (
-        <ScrollView horizontal={true} style={{width: "95%", marginLeft: "auto", marginRight: "auto"}}>
+        <ScrollView style={{width: 300, marginLeft: "auto", marginRight: "auto"}}>
             <View style={styles.container}>
                     <View style={styles.row}>
                         <Text style={styles.textRowHeaderCodigo}>ID</Text>
-                        <Text style={styles.textRowHeader}>Nome</Text>
-                        <Text style={styles.textRowHeaderCodigo}>Profissão</Text>
-                        <Text style={styles.textRowHeader}>Telefone</Text>
-                        <Text style={styles.textRowHeader}>Email</Text>
+                        <Text style={styles.textRowHeader}>Profissão</Text>
                     </View>
                     {dados.map((item, index) => (
                         <View key={index} style={styles.row}>
                             <Text style={styles.textRowCodigo}>{String(item.id)}</Text>
-                            <Text style={styles.textRow}>{item.nome}</Text>
-                            <Text style={styles.textRowCodigo}>{String(item.tipoDeProfissional)}</Text>
-                            <Text style={styles.textRow}>{item.telefone}</Text>
-                            <Text style={styles.textRow}>{item.email}</Text>
+                            <Text style={styles.textRow}>{item.descricao}</Text>
                         </View>
                     ))}
             </View>
@@ -31,7 +25,7 @@ export const TabelaProfissional = ({ dados }: {dados: dadoTipo}) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 700,
+        width: 300,
         height: 550,
     },
     row: {
@@ -64,5 +58,3 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 });
-
-export default TabelaProfissional;

@@ -1,26 +1,20 @@
 import { ScrollView, StyleSheet } from "react-native"
 import { Header, Props } from "../../components/header"
 import { Footer } from "../../components/footer"
-import { TabelaProfissional } from "../../components/table"
+import { TabelaTipoProfissional } from "../../components/tableTipoProfissional"
 import { useEffect, useState } from "react"
 
-export type dadoTipo = [{
+export type dadoTipoProfissional = [{
     id: Number,                
-    nome: String,
-    telefone: String,  
-    email: String,    
-    tipoDeProfissional: Number,
-    situacao: Boolean,
-    updatedAt: String,
-    createdAt: String, 
+    descricao: String,
 }];
 
-export const Profissional = ({navigation}: Props) =>{
-    const [dados, setDados] = useState<dadoTipo | []>([]);
+export const TipoProfissional = ({navigation}: Props) =>{
+    const [dados, setDados] = useState<dadoTipoProfissional | []>([]);
 
     useEffect(()=>{
         async function fetchData() {
-            const response = await fetch("http://192.168.3.7:8080/profissional");
+            const response = await fetch("http://192.168.3.7:8080/tipoProfissional");
             const data = await response.json();
             setDados(data);
         }    
@@ -30,7 +24,7 @@ export const Profissional = ({navigation}: Props) =>{
     return(
         <ScrollView style={Style.container}>
             <Header navigation={navigation}/>
-            <TabelaProfissional dados={dados as dadoTipo}/>
+            <TabelaTipoProfissional dados={dados as dadoTipoProfissional}/>
             <Footer/>
         </ScrollView>
     )

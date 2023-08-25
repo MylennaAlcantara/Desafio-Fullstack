@@ -57,7 +57,7 @@ export const Header = ({navigation}: Props)=> {
                           <TouchableOpacity style={styles.subOpcao} onPress={() => navigation.navigate('Profissional', {name: 'Profissional'})}>
                             <Text>Lista de Profissionais</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity style={styles.subOpcao}>
+                          <TouchableOpacity style={styles.subOpcao} onPress={()=> navigation.navigate("CadastroProfissional", {name: "CadastroProfissional"})}>
                             <Text>Cadastro de Profissionais</Text>
                           </TouchableOpacity>
                         </>
@@ -67,7 +67,7 @@ export const Header = ({navigation}: Props)=> {
                       </TouchableOpacity>
                       {opTipo ? (
                         <>
-                          <TouchableOpacity style={styles.subOpcao}>
+                          <TouchableOpacity style={styles.subOpcao} onPress={() => navigation.navigate('Profissão', {name: 'Profissão'})}>
                             <Text>Lista de Profissões</Text>
                           </TouchableOpacity>
                           <TouchableOpacity style={styles.subOpcao}>
