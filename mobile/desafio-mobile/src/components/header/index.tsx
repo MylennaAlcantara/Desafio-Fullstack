@@ -40,7 +40,7 @@ export const Header = ({navigation}: Props)=> {
         <View style={styles.menu}>
             <Text style={styles.text}>Gestor</Text>
             <TouchableOpacity onPress={()=>resizeBox(1)}>
-              <Image style={styles.image} source={require("../../../public/images/icones/linkedin_icon.png")}/>
+              <Image style={styles.image} source={require("../../../public/images/icones/menu.png")}/>
             </TouchableOpacity>
             <Modal transparent visible={visible} >
               <SafeAreaView  style={{flex: 1}} onTouchEnd={()=>resizeBox(0)}>
@@ -70,7 +70,7 @@ export const Header = ({navigation}: Props)=> {
                           <TouchableOpacity style={styles.subOpcao} onPress={() => navigation.navigate('Profissão', {name: 'Profissão'})}>
                             <Text>Lista de Profissões</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity style={styles.subOpcao}>
+                          <TouchableOpacity style={styles.subOpcao} onPress={() => navigation.navigate('CadastroProfissão', {name: 'CadastroProfissão'})}>
                             <Text>Cadastro de Profissões</Text>
                           </TouchableOpacity>
                         </>

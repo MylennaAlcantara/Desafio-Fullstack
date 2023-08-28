@@ -5,12 +5,14 @@ import { Home } from './src/screens/home';
 import { Profissional } from './src/screens/listaProfissional';
 import { TipoProfissional } from './src/screens/listaTipoProfissional';
 import { CadastroProfissional } from './src/screens/cadastroProfissional';
+import { CadastroTipoProfissional } from './src/screens/cadastroTipoProfissional';
 
 export type RootStackParamList = {
   Home: {name: string},
   Profissional: { name: string },
   Profissão: {name: string},
-  CadastroProfissional: {name: string}
+  CadastroProfissional: {name: string},
+  CadastroProfissão: {name: string}
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -23,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Profissional" component={Profissional} />
         <Stack.Screen name="Profissão" component={TipoProfissional} />
         <Stack.Screen name="CadastroProfissional" component={CadastroProfissional}/>
+        <Stack.Screen name="CadastroProfissão" component={CadastroTipoProfissional}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,29 +4,23 @@ import { Footer } from "../../components/footer";
 import { useState } from "react";
 
 type TypeDados = {
-    nome: string,
-    email: string,
-    telefone: string,
-    tipoDeProfissional: string,
+    descricao: string,
     situacao: boolean,
     createdAt: Date
 }
 
-export const CadastroProfissional = ({navigation}: Props) => {
+export const CadastroTipoProfissional = ({navigation}: Props) => {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
     const [inputFocus, setInputFocus] = useState<String>("");
     const [dados, setDados] = useState<TypeDados>({
-        nome: "",
-        email: "",
-        telefone: "",
-        tipoDeProfissional: "",
+        descricao: "",
         situacao: true,
         createdAt: today
     });
 
-    async function salvarProfissional() {
-        fetch("http://10.0.1.107:8080/profissional/cadastrar", {
+    async function salvarTipoProfissional() {
+        fetch("http://10.0.1.107:8080/tipoProfissional/cadastrar", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(dados)
@@ -42,23 +36,17 @@ export const CadastroProfissional = ({navigation}: Props) => {
     return (
         <ScrollView style={styles.container}>
             <Header navigation={navigation}/>
-            <ImageBackground source={require("../../../public/images/trabalhadores.jpg")}  imageStyle={{opacity: 0.5}} resizeMode="cover" style={styles.content}>
+            <ImageBackground source={require("../../../public/images/profissoes.jpg")}  imageStyle={{opacity: 0.5}} resizeMode="cover" style={styles.content}>
                 <Text style={{fontSize: 26, marginBottom: 10, fontWeight: "bold"}}>Cadastro de Profissional</Text>
                 <View style={{display: "flex", flexDirection: "row"}}>
                     <View style={styles.divLabel}>
-                        <Text style={styles.label} >Nome:</Text>
-                        <Text style={styles.label} >Email:</Text>
-                        <Text style={styles.label} >Telefone:</Text>
-                        <Text style={styles.label} >Profissão:</Text>
+                        <Text style={styles.label} >Descrição:</Text>
                     </View>
                     <View style={styles.divInput}>
-                        <TextInput value={dados.nome} onChangeText={(e)=> setDados({...dados, nome: e})} onFocus={()=> setInputFocus("nome")} onBlur={()=> setInputFocus("")} style={inputFocus === "nome" ? styles.inputFocus : styles.input} />
-                        <TextInput value={dados.email} onChangeText={(e)=> setDados({...dados, email: e})} onFocus={()=> setInputFocus("email")} onBlur={()=> setInputFocus("")} style={inputFocus === "email" ? styles.inputFocus : styles.input} />
-                        <TextInput value={dados.telefone} onChangeText={(e)=> setDados({...dados, telefone: e})} onFocus={()=> setInputFocus("telefone")} onBlur={()=> setInputFocus("")} style={inputFocus === "telefone" ? styles.inputFocus : styles.input} />
-                        <TextInput value={dados.tipoDeProfissional} onChangeText={(e)=> setDados({...dados, tipoDeProfissional: e})} onFocus={()=> setInputFocus("profissao")} onBlur={()=> setInputFocus("")} style={inputFocus === "profissao" ? styles.inputFocus : styles.input} />
+                        <TextInput value={dados.descricao} onChangeText={(e)=> setDados({...dados, descricao: e})} onFocus={()=> setInputFocus("nome")} onBlur={()=> setInputFocus("")} style={inputFocus === "nome" ? styles.inputFocus : styles.input} />
                     </View>
                 </View>
-                <TouchableOpacity style={styles.button} onPress={salvarProfissional}><Text>Salvar</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={salvarTipoProfissional}><Text>Salvar</Text></TouchableOpacity>
             </ImageBackground>
             <Footer/>
         </ScrollView>

@@ -20,7 +20,7 @@ export const Profissional = ({navigation}: Props) =>{
 
     useEffect(()=>{
         async function fetchData() {
-            const response = await fetch("http://192.168.3.7:8080/profissional");
+            const response = await fetch("http://10.0.1.107:8080/profissional");
             const data = await response.json();
             setDados(data);
         }    
